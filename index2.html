@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>思思念念｜一份家的記憶</title>
+
+<!-- Tailwind CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-pY1xXyPm3fYcVNL7P5xN6DUUlT8Q6tds4b3TrR2jKuKZvk0u+6633/1XzqwG1M3dV3XbFz5NgGiE4KGfQw2uDw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+/* ===== Base ===== */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  background: #F6F2EA;
+  color: #333333;
+  overflow-x: hidden;
+}
+
+.video-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -30;
+}
+
+.video-background iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 177.77778vh;
+  height: 100vw;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  filter: brightness(0.65) saturate(0.96);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 23, 35, 0.45), rgba(16, 23, 35, 0.20));
+  z-index: -10;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+}
+
+/* ===== Glass Effect ===== */
+.glass {
+  background: rgba(250,251,245,0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(138,154,107,0.18);
+}
+
+nav a {
+  color: #3D3D3D;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #5E6E4D;
+}
+
+.text-primary {
+  color: #5E6E4D;
+}
+
+.text-secondary {
+  color: #7A5E45;
+}
+
+.text-accent {
+  color: #C85D4E;
+}
+
+.border-tea {
+  border-color: rgba(138,154,107,0.35);
+}
+
+.bg-accent {
+  background: #C85D4E;
+}
+
+/* ===== Glow Button ===== */
+.btn-glow {
+  transition: all 0.3s ease;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 25px rgba(200,93,78,0.35);
+  transform: translateY(-2px);
+}
+
+/* ===== Floating Animation ===== */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ===== Fade In ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+
+<body class="text-gray-700">
+
+<!-- ===== NAV ===== -->
+<nav class="fixed w-full z-50 glass px-6 py-4 flex justify-between items-center">
+  <div class="text-xl font-bold text-primary">思思念念</div>
+  <div class="space-x-6 text-sm">
+    <a href="#home">首頁</a>
+    <a href="#about">品牌故事</a>
+    <a href="#products">商品</a>
+    <a href="#pricing">方案</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">聯絡</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="home" class="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
+  <div class="video-background">
+    <iframe id="bgVideo" src="https://www.youtube.com/embed/Id35T2xKgO0?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=Id35T2xKgO0&modestbranding=1&iv_load_policy=3"
+      title="背景影音"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content max-w-4xl">
+    <p class="text-sm uppercase tracking-[0.35em] text-white/75 mb-6">家的味道從視覺到感受</p>
+    <h1 class="text-5xl md:text-7xl font-black leading-tight text-white drop-shadow-xl">
+      <span id="typewriter"></span>
+    </h1>
+    <p class="mt-6 text-lg md:text-xl text-white/90 max-w-2xl mx-auto">在這裡，每一份水餃都承載一段溫暖回憶，讓你一進門就感受家的深情。</p>
+    <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+      <a href="#about" class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-slate-900 font-semibold shadow-xl transition hover:bg-slate-100">
+        了解品牌故事
+      </a>
+      <a href="#products" class="inline-flex items-center justify-center px-8 py-4 rounded-full border border-white/70 text-white font-semibold transition hover:bg-white/10">
+        查看商品系列
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="py-24 px-6 fade-in">
+  <div class="max-w-6xl mx-auto grid gap-10 lg:grid-cols-2 items-center">
+    <div>
+      <h2 class="text-3xl font-bold text-primary mb-6">品牌故事</h2>
+      <p class="leading-8 text-secondary mb-6">
+        思思念念創立於1997年，由創辦人佳欣以媽媽親手包製的水餃為起點。
+        每一道工序都承載家的溫度與記憶。
+        我們相信愛不會消失，因此將這份味道延續成品牌。
+      </p>
+      <div class="glass p-6 rounded-3xl border border-tea">
+        <p class="text-slate-700 font-medium">
+          「每一顆水餃不只是食物，而是一份思念、一份牽掛，以及對家人最真摯的情感。」
+        </p>
+      </div>
+    </div>
+    <div class="relative rounded-[2rem] overflow-hidden shadow-2xl">
+      <img src="images/水餃1.jpg" alt="手工水餃商品照" class="w-full h-full object-cover min-h-[320px]" />
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent"></div>
+      <div class="absolute bottom-6 left-6 text-white">
+        <p class="text-sm uppercase tracking-[0.3em] text-white/80 mb-2">手工水餃</p>
+        <h3 class="text-2xl font-bold">家的味道，看得見的溫度</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="py-24 px-6 fade-in">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold text-primary mb-4">商品攝影展演</h2>
+      <p class="text-secondary max-w-2xl mx-auto">其他商品照片也已精心呈現，讓品牌更具生活感與質感。</p>
+    </div>
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="glass p-4 rounded-3xl overflow-hidden shadow-lg">
+        <img src="images/水餃2.jpg" alt="產品照片一" class="w-full h-64 object-cover rounded-3xl mb-4" />
+        <h3 class="font-semibold text-primary mb-2">質感商品照</h3>
+        <p class="text-secondary text-sm">自然光與手工感交織，呈現商品最真實的面貌。</p>
+      </div>
+      <div class="glass p-4 rounded-3xl overflow-hidden shadow-lg">
+        <img src="images/水餃3.jfif" alt="產品照片二" class="w-full h-64 object-cover rounded-3xl mb-4" />
+        <h3 class="font-semibold text-primary mb-2">生活情境展示</h3>
+        <p class="text-secondary text-sm">讓商品與日常場景相融，更貼近消費者的記憶。</p>
+      </div>
+      <div class="glass p-4 rounded-3xl overflow-hidden shadow-lg">
+        <img src="images/水餃1.jpg" alt="產品照片三" class="w-full h-64 object-cover rounded-3xl mb-4" />
+        <h3 class="font-semibold text-primary mb-2">經典商品主視覺</h3>
+        <p class="text-secondary text-sm">品牌主打商品再現，增強現在與未來消費者的信任感。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="products" class="py-24 px-6 bg-white fade-in">
+  <h2 class="text-2xl font-bold text-primary text-center mb-10">商品介紹</h2>
+
+  <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+    <div class="glass p-6 rounded-xl float">
+      <h3 class="font-bold">豬肉高麗菜水餃</h3>
+      <p class="text-sm">NT$199 / 15顆</p>
+    </div>
+
+    <div class="glass p-6 rounded-xl float">
+      <h3 class="font-bold">韭菜冬粉素水餃</h3>
+      <p class="text-sm">NT$199 / 15顆</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section id="pricing" class="py-24 px-6 fade-in">
+  <h2 class="text-2xl font-bold text-primary text-center mb-10">訂購方案</h2>
+
+  <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+    <div class="glass p-6 rounded-xl">
+      <h3 class="font-bold">單次購買</h3>
+      <p>10包以上：免運 + 贈1包</p>
+    </div>
+
+    <div class="glass p-6 rounded-xl border border-green-300">
+      <h3 class="font-bold">訂閱制會員</h3>
+      <p>每月 NT$999 / 5包配送</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="py-24 px-6 max-w-4xl mx-auto fade-in">
+  <h2 class="text-2xl font-bold text-primary mb-6">購買說明 / FAQ</h2>
+  <p>冷凍保存｜下單後3日內出貨｜可訂閱取消</p>
+</section>
+
+<!-- ===== CORE SOLUTIONS ===== -->
+<section id="solutions" class="py-24 px-6 fade-in">
+  <h2 class="text-2xl font-bold text-primary text-center mb-10">核心產品與技術解決方案</h2>
+
+  <div class="max-w-4xl mx-auto grid gap-6">
+    <div class="glass p-6 rounded-xl flex items-start gap-4">
+      <div class="text-3xl text-primary mt-1">
+        <i class="fa-brands fa-github"></i>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg">🏠 思思念念，一份家的記憶</h3>
+        <p class="text-sm text-gray-600 mb-3 leading-6">
+          <span class="block mb-2">📅 思思念念創立於1997年，由創辦人佳欣以媽媽親手包製的水餃為起點。</span>
+          <span class="block mb-2">👩‍🍳 每一道工序都承載家的溫度與記憶。</span>
+          <span class="block">❤️ 我們相信愛不會消失，因此將這份味道延續成品牌。</span>
+        </p>
+        <a href="https://courses.taiwanmds.com/product/information?p=02c0c7b9ec7b11f0b3480242ac110002" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">
+          查看詳細資訊
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXTERNAL DEPENDENCIES ===== -->
+<section id="dependencies" class="py-24 px-6 fade-in">
+  <h2 class="text-2xl font-bold text-red-500 text-center mb-10">外部依賴庫 (Dependencies)</h2>
+
+  <div class="max-w-5xl mx-auto grid gap-4 md:grid-cols-4 text-center">
+    <div class="glass p-6 rounded-xl">
+      <div class="text-4xl text-green-500 mb-3">
+        <i class="fab fa-line"></i>
+      </div>
+      <div class="font-bold">LINE</div>
+    </div>
+    <div class="glass p-6 rounded-xl">
+      <div class="text-4xl text-blue-600 mb-3">
+        <i class="fab fa-facebook-f"></i>
+      </div>
+      <div class="font-bold">Facebook</div>
+    </div>
+    <div class="glass p-6 rounded-xl">
+      <div class="text-4xl text-sky-600 mb-3">
+        <i class="fab fa-linkedin-in"></i>
+      </div>
+      <div class="font-bold">LinkedIn</div>
+    </div>
+    <div class="glass p-6 rounded-xl">
+      <div class="text-4xl text-gray-900 mb-3">
+        <i class="fab fa-github"></i>
+      </div>
+      <a href="https://github.com/sandykuo-tech" target="_blank" rel="noopener noreferrer" class="font-bold hover:text-red-500">
+        GitHub
+      </a>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto mt-10 glass p-8 rounded-xl text-left">
+    <h3 class="text-xl font-bold text-red-500 mb-4">填寫需求表單</h3>
+    <p class="text-gray-600 mb-6">請透過下方連結前往 Google Form，讓我們快速掌握你的需求與聯絡方式。</p>
+    <a href="https://forms.gle/vUJ3LtQKJxsRiMz46" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-accent text-white hover:bg-[#A7463D] transition">
+      <i class="fas fa-paper-plane mr-2"></i> 前往填寫需求表單
+    </a>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="py-24 px-6 fade-in">
+  <div class="max-w-6xl mx-auto grid gap-14 lg:grid-cols-[1.2fr_0.8fr] items-start">
+    <div class="glass p-10 rounded-[2rem] border border-tea shadow-2xl">
+      <h2 class="text-3xl font-bold text-primary mb-6">與我們取得聯繫</h2>
+      <p class="text-secondary leading-8 mb-8">
+        聯絡信箱：<a href="mailto:howard32180900@tmrmds.co" class="text-accent hover:underline">howard32180900@tmrmds.co</a><br>
+        電話：<a href="tel:+8860223651689" class="text-accent hover:underline">(02) 2365-1689</a> / 手機：<a href="tel:+886963859208" class="text-accent hover:underline">0963-859-208</a><br>
+        地址：106021 台北市大安區羅斯福路三段 335 號 12 樓之二<br>
+        統編：66800257
+      </p>
+      <div class="space-y-4">
+        <div class="rounded-3xl bg-white/80 p-6 border border-tea">
+          <h3 class="text-lg font-semibold text-primary mb-3">快速選擇需求類型</h3>
+          <ul class="text-secondary space-y-2">
+            <li>• 企業內訓</li>
+            <li>• 資料科學專案</li>
+            <li>• 系統建置</li>
+          </ul>
+        </div>
+        <div class="rounded-3xl bg-white/80 p-6 border border-tea">
+          <h3 class="text-lg font-semibold text-primary mb-3">我們的回覆時間</h3>
+          <p class="text-secondary leading-7">週一至週五 09:00–18:00，若您有偏好的聯絡時段，請在表單內註明，我們將優先安排合適時間回覆。</p>
+        </div>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdHaIAYLYYFNvbrXAftx6AtP2oWOwSOkTEQXxVZqziOyXx5VQ/viewform?usp=publish-editor"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="mt-8 inline-flex items-center justify-center px-8 py-4 rounded-full bg-accent text-white font-semibold shadow-xl transition hover:bg-[#A7463D]">
+        查看線上聯絡表單
+      </a>
+    </div>
+
+    <div class="glass p-10 rounded-[2rem] border border-tea shadow-2xl bg-white/90">
+      <h2 class="text-3xl font-bold text-primary mb-6">聯絡我們</h2>
+      <form class="space-y-6" action="https://docs.google.com/forms/d/e/1FAIpQLSdHaIAYLYYFNvbrXAftx6AtP2oWOwSOkTEQXxVZqziOyXx5VQ/viewform?usp=publish-editor" target="_blank">
+        <label class="block text-sm font-medium text-slate-700">
+          您的姓名/稱呼
+          <input type="text" placeholder="請輸入您的名字或稱呼" class="mt-3 w-full rounded-3xl border border-slate-300 bg-slate-50 px-5 py-4 text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20" />
+        </label>
+
+        <label class="block text-sm font-medium text-slate-700">
+          聯絡電子信箱
+          <input type="email" placeholder="example@mail.com" class="mt-3 w-full rounded-3xl border border-slate-300 bg-slate-50 px-5 py-4 text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20" />
+        </label>
+
+        <label class="block text-sm font-medium text-slate-700">
+          您的需求
+          <select class="mt-3 w-full rounded-3xl border border-slate-300 bg-slate-50 px-5 py-4 text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20">
+            <option>請選擇需求</option>
+            <option>企業內訓</option>
+            <option>資料科學專案</option>
+            <option>系統建置</option>
+          </select>
+        </label>
+
+        <label class="block text-sm font-medium text-slate-700">
+          需求簡介（詳細文字）
+          <textarea rows="5" placeholder="請描述您的需求細節，例如專案目標、預算、預計開課時間..." class="mt-3 w-full rounded-3xl border border-slate-300 bg-slate-50 px-5 py-4 text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20"></textarea>
+        </label>
+
+        <label class="block text-sm font-medium text-slate-700">
+          適合聯絡的時間
+          <input type="text" placeholder="例如：週一下午 14:00-17:00" class="mt-3 w-full rounded-3xl border border-slate-300 bg-slate-50 px-5 py-4 text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent/20" />
+        </label>
+
+        <button type="submit" class="w-full rounded-3xl bg-primary py-4 text-white font-semibold shadow-xl transition hover:bg-[#4e6b4a]">送出表單</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+/* ===== Typewriter Effect ===== */
+const text = "思思念念，一份家的記憶";
+let i = 0;
+function type() {
+  if (i < text.length) {
+    document.getElementById("typewriter").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 120);
+  }
+}
+type();
+
+/* ===== Scroll Animation ===== */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  function onYouTubeIframeAPIReady() {
+    new YT.Player('bgVideo', {
+      events: {
+        onReady: function (event) {
+          event.target.setPlaybackRate(0.75);
+          event.target.playVideo();
+        }
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
