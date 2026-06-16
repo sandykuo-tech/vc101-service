@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>思思念念｜一份家的記憶</title>
+
+<!-- Tailwind CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-pY1xXyPm3fYcVNL7P5xN6DUUlT8Q6tds4b3TrR2jKuKZvk0u+6633/1XzqwG1M3dV3XbFz5NgGiE4KGfQw2uDw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+/* ===== Base ===== */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  background: linear-gradient(180deg,#FAFBF5,#F2EFE8);
+  overflow-x: hidden;
+}
+
+/* ===== Glass Effect ===== */
+.glass {
+  background: rgba(250,251,245,0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(138,154,107,0.18);
+}
+
+nav a {
+  color: #3D3D3D;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #5E6E4D;
+}
+
+.text-primary {
+  color: #5E6E4D;
+}
+
+.text-secondary {
+  color: #7A5E45;
+}
+
+.text-accent {
+  color: #C85D4E;
+}
+
+.border-tea {
+  border-color: rgba(138,154,107,0.35);
+}
+
+.bg-accent {
+  background: #C85D4E;
+}
+
+/* ===== Glow Button ===== */
+.btn-glow {
+  transition: all 0.3s ease;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 25px rgba(200,93,78,0.35);
+  transform: translateY(-2px);
+}
+
+/* ===== Floating Animation ===== */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ===== Fade In ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+
+<body class="text-gray-700">
+
+<!-- ===== Background Canvas (AI particles) ===== -->
+<canvas id="bg" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+
+<!-- ===== NAV ===== -->
+<nav class="fixed w-full z-50 glass px-6 py-4 flex justify-between items-center">
+  <div class="text-xl font-bold text-primary">思思念念</div>
+  <div class="space-x-6 text-sm">
+    <a href="#home">首頁</a>
+    <a href="#about">品牌故事</a>
+    <a href="#products">商品</a>
+    <a href="#pricing">方案</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">聯絡</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="home" class="h-screen flex items-center justify-center text-center px-6">
+  <div>
+    <h1 class="text-4xl md:text-6xl font-bold text-primary">
+      <span id="typewriter"></span>
+    </h1>
+    <p class="mt-4 text-secondary">把思念包進每一口溫暖裡</p>
+
+    <button class="mt-8 px-6 py-3 rounded-full glass btn-glow text-accent border border-tea">
+      Status: Ready to Connect
+    </button>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="py-24 px-6 max-w-4xl mx-auto fade-in">
+  <h2 class="text-2xl font-bold text-primary mb-6">品牌故事</h2>
+  <p class="leading-7">
+    思思念念創立於1997年，由創辦人佳欣以媽媽親手包製的水餃為起點。
+    每一道工序都承載家的溫度與記憶。
+    我們相信愛不會消失，因此將這份味道延續成品牌。
+  </p>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="products" class="py-24 px-6 bg-white fade-in">
+  <h2 class="text-2xl font-bold text-primary text-center mb-10">商品介紹</h2>
+
+  <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+    <div class="glass p-6 rounded-xl float">
+      <h3 class="font-bold">豬肉高麗菜水餃</h3>
+      <p class="text-sm">NT$199 / 15顆</p>
+    </div>
+
+    <div class="glass p-6 rounded-xl float">
+      <h3 class="font-bold">韭菜冬粉素水餃</h3>
+      <p class="text-sm">NT$199 / 15顆</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section id="pricing" class="py-24 px-6 fade-in">
+  <h2 class="text-2xl font-bold text-primary text-center mb-10">訂購方案</h2>
+
+  <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+    <div class="glass p-6 rounded-xl">
+      <h3 class="font-bold">單次購買</h3>
+      <p>10包以上：免運 + 贈1包</p>
+    </div>
+
+    <div class="glass p-6 rounded-xl border border-green-300">
+      <h3 class="font-bold">訂閱制會員</h3>
+      <p>每月 NT$999 / 5包配送</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="py-24 px-6 max-w-4xl mx-auto fade-in">
+  <h2 class="text-2xl font-bold text-primary mb-6">購買說明 / FAQ</h2>
+  <p>冷凍保存｜下單後3日內出貨｜可訂閱取消</p>
+</section>
+
+<!-- ===== CORE SOLUTIONS ===== -->
+<section id="solutions" class="py-24 px-6 fade-in">
+  <h2 class="text-2xl font-bold text-primary text-center mb-10">核心產品與技術解決方案</h2>
+
+  <div class="max-w-4xl mx-auto grid gap-6">
+    <div class="glass p-6 rounded-xl flex items-start gap-4">
+      <div class="text-3xl text-primary mt-1">
+        <i class="fa-brands fa-github"></i>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg">🏠 思思念念，一份家的記憶</h3>
+        <p class="text-sm text-gray-600 mb-3 leading-6">
+          <span class="block mb-2">📅 思思念念創立於1997年，由創辦人佳欣以媽媽親手包製的水餃為起點。</span>
+          <span class="block mb-2">👩‍🍳 每一道工序都承載家的溫度與記憶。</span>
+          <span class="block">❤️ 我們相信愛不會消失，因此將這份味道延續成品牌。</span>
+        </p>
+        <a href="https://courses.taiwanmds.com/product/information?p=02c0c7b9ec7b11f0b3480242ac110002" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">
+          查看詳細資訊
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXTERNAL DEPENDENCIES ===== -->
+<section id="dependencies" class="py-24 px-6 fade-in">
+  <h2 class="text-2xl font-bold text-red-500 text-center mb-10">外部依賴庫 (Dependencies)</h2>
+
+  <div class="max-w-5xl mx-auto grid gap-4 md:grid-cols-4 text-center">
+    <div class="glass p-6 rounded-xl">
+      <div class="text-4xl text-green-500 mb-3">
+        <i class="fab fa-line"></i>
+      </div>
+      <div class="font-bold">LINE</div>
+    </div>
+    <div class="glass p-6 rounded-xl">
+      <div class="text-4xl text-blue-600 mb-3">
+        <i class="fab fa-facebook-f"></i>
+      </div>
+      <div class="font-bold">Facebook</div>
+    </div>
+    <div class="glass p-6 rounded-xl">
+      <div class="text-4xl text-sky-600 mb-3">
+        <i class="fab fa-linkedin-in"></i>
+      </div>
+      <div class="font-bold">LinkedIn</div>
+    </div>
+    <div class="glass p-6 rounded-xl">
+      <div class="text-4xl text-gray-900 mb-3">
+        <i class="fab fa-github"></i>
+      </div>
+      <a href="https://github.com/sandykuo-tech" target="_blank" rel="noopener noreferrer" class="font-bold hover:text-red-500">
+        GitHub
+      </a>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto mt-10 glass p-8 rounded-xl text-left">
+    <h3 class="text-xl font-bold text-red-500 mb-4">填寫需求表單</h3>
+    <p class="text-gray-600 mb-6">請透過下方連結前往 Google Form，讓我們快速掌握你的需求與聯絡方式。</p>
+    <a href="https://forms.gle/vUJ3LtQKJxsRiMz46" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-accent text-white hover:bg-[#A7463D] transition">
+      <i class="fas fa-paper-plane mr-2"></i> 前往填寫需求表單
+    </a>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="py-24 px-6 text-center fade-in">
+  <h2 class="text-2xl font-bold text-primary mb-6">聯絡與預約</h2>
+
+  <a href="https://calendar.app.google/T3SqnKE3Bywut5uL9"
+     class="inline-block px-6 py-3 rounded-full glass btn-glow text-accent border border-tea">
+     預約諮詢
+  </a>
+</section>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+/* ===== Typewriter Effect ===== */
+const text = "思思念念，一份家的記憶";
+let i = 0;
+function type() {
+  if (i < text.length) {
+    document.getElementById("typewriter").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 120);
+  }
+}
+type();
+
+/* ===== Scroll Animation ===== */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+/* ===== Particle Background ===== */
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = Array.from({length: 60}, () => ({
+  x: Math.random() * canvas.width,
+  y: Math.random() * canvas.height,
+  r: Math.random() * 2 + 1,
+  dx: (Math.random() - 0.5) * 0.5,
+  dy: (Math.random() - 0.5) * 0.5
+}));
+
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = "rgba(235,77,75,0.2)";
+
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+
+    p.x += p.dx;
+    p.y += p.dy;
+
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+  });
+
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
